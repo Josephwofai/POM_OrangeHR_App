@@ -45,6 +45,6 @@ class AdminActionPage:
         click_corporate_branding.click()
 
     def click_configuration(self):
-        click_configuration = WebDriverWait(self.driver,10).until(
+        click_configuration = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(AdminLocatorPage.Click_Configuration))
         click_configuration.click()
