@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class LeaveLocatorPage:
-    Click_Leave_Module = (By.XPATH, "/html/body/div/div[1]/div[1]/header/div[1]/div[1]/span/h6")
+    Click_Leave_Module = (By.XPATH, "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li[3]/a/span")
     Click_Apply = (By.XPATH, "/html/body/div/div[1]/div[1]/header/div[2]/nav/ul/li[1]/a")
     Click_My_Leave = (By.XPATH, "/html/body/div/div[1]/div[1]/header/div[2]/nav/ul/li[2]/a")
     Click_Entitlement = (By.XPATH, "/html/body/div/div[1]/div[1]/header/div[2]/nav/ul/li[3]/span")
