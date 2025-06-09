@@ -1,27 +1,43 @@
 import pytest
 from Config.config import Config
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
 from LoginPage.LoginActionPage import LoginActionPage
 from AdminPage.AdminActionPage import AdminActionPage
 from PimPage.PimActionPage import PimActionPage
 from LeavePage.LeaveActionPage import LeaveActionPage
-from TimeModuleLocator.TimeModuleLocatorPage import TimeModuleLocatorPage
-from RecruitmentModuleLocator.RecruitmentModuleLocatorPage import RecruitmentModuleLocatorPage
-from MyInforModuleLocator.MyInforModuleLocatorPage import MyInforModuleLocatorPage
-from PerformanceLocator.PerformanceLocatorPage import PerformanceLocatorPage
-from DashBoardLocator.DashBoardLocatorPage import DashBoardLocatorPage
-from DirectoryLocator.DirectoryLocatorPage import DirectoryLocatorPage
-from MaintenanceLocator.MaintenanceLocatorPage import MaintenanceLocatorPage
-from ClaimLocator.ClaimLocatorPage import ClaimLocatorPage
-from BuzzLocator.BuzzLocatorPage import BuzzLocatorPage
-from LogoutLocator.LogoutLocatorPage import LogoutLocatorPage
+
+
+# from TimeModuleLocator.TimeModuleLocatorPage import TimeModuleLocatorPage
+# from RecruitmentModuleLocator.RecruitmentModuleLocatorPage import RecruitmentModuleLocatorPage
+# from MyInforModuleLocator.MyInforModuleLocatorPage import MyInforModuleLocatorPage
+# from PerformanceLocator.PerformanceLocatorPage import PerformanceLocatorPage
+# from DashBoardLocator.DashBoardLocatorPage import DashBoardLocatorPage
+# from DirectoryLocator.DirectoryLocatorPage import DirectoryLocatorPage
+# from MaintenanceLocator.MaintenanceLocatorPage import MaintenanceLocatorPage
+# from ClaimLocator.ClaimLocatorPage import ClaimLocatorPage
+# from BuzzLocator.BuzzLocatorPage import BuzzLocatorPage
+# from LogoutLocator.LogoutLocatorPage import LogoutLocatorPage
+
+
+# @pytest.fixture(scope="module")
+# def driver_setup():
+#     driver = webdriver.Chrome()
+#     driver.implicitly_wait(20)
+#     driver.maximize_window()
+#     yield driver
+#     driver.quit()
 
 
 @pytest.fixture(scope="module")
 def driver_setup():
-    driver = webdriver.Chrome()
-    driver.implicitly_wait(20)
+    chrome_options = Options()
+    # Uncomment the line below to run in headless mode
+    chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+    chrome_options.add_argument("--disable-gpu")  # Optional: Disable GPU acceleration
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.implicitly_wait(10)
     driver.maximize_window()
     yield driver
     driver.quit()
@@ -74,7 +90,6 @@ def test_leave_page_orangehrm_website(login):
     test_leave_page.click_configure()
     test_leave_page.click_leave_list()
     test_leave_page.click_assign_leave()
-
 
 # def test_time_page_orange_hrm_website(login):
 #     test_time_page = TimeModulePage(login.driver)

@@ -27,4 +27,4 @@ class LoginActionPage:
         click_login_button = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(LoginLocatorPage.CLICK_LOGIN_BUTTON))
         click_login_button.click()
-        time.sleep(10)
+        # time.sleep(10)
